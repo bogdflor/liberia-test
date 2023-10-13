@@ -10,7 +10,7 @@ const start = async () => {
   // }
 
   try {
-    const { rows } = await query('Select count(*) as total from  admin.accounts')
+    const { rows } = await query('Select count(*) as total from  spatial_ref_sys')
     
     if(rows[0])
       console.log("Connected to Posgresql!");
