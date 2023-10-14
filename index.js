@@ -13,7 +13,7 @@ const start = async () => {
     const { rows } = await query('Select count(*) as total from  spatial_ref_sys')
     
     if(rows[0])
-      console.log("Connected to Posgresql!"+rows[0].json_build_object);
+      console.log("Connected to Posgresql!"+rows[0].total);
 
   } catch (err) {
     console.error(err);
