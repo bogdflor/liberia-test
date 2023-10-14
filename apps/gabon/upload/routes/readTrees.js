@@ -1,5 +1,7 @@
 import express from "express";
+import { query } from "express-validator";
 import { Tree } from "../models/tree.js";
+import { validateRequest} from "root/common/src/middlewares/validate-request.js";
 
 
 export const router = express.Router();
@@ -7,11 +9,11 @@ export const router = express.Router();
 router.get(
     "/api/annual_allowable_cut_inventory/vectors",
      [
-        check(req.query.zoom)
+        query("zoom")
                                 .exists()
                                 .notEmpty()
                                 .withMessage("zoom must be provided") ,
-         check(req.query.bbox)
+         query("bbox")
                         .exists()
                         .notEmpty()
                         .withMessage("bbox must be provided") ,
